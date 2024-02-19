@@ -1,4 +1,4 @@
-# Emotion-Music-Recommendation
+# Emotion Based Music Recommendation
 CNN model to reccomend music based on user facial emotion using FER 2013 dataset and Spotipy api
 
 
