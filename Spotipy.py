@@ -18,7 +18,7 @@ with open('config.json') as config_file:
 client_id = config['spotify_client_id']
 client_secret = config['spotify_client_secret']
 
-auth_manager = SpotifyClientCredentials("", "")
+auth_manager = SpotifyClientCredentials(client_id, client_secret)
 sp = spotipy.Spotify(auth_manager=auth_manager)
 
 
@@ -60,7 +60,7 @@ music_dist = {
     0: "0l9dAmBrUJLylii66JOsHB?si=e1d97b8404e34343",
     1: "1n6cpWo9ant4WguEo91KZh?si=617ea1c66ab6446b ",
     2: "4cllEPvFdoX6NIVWPKai9I?si=dfa422af2e8448ef",
-    3: "0deORnapZgrxFY4nsKr9JA?si=7a5aba992ea14c93",
+    3: "37i9dQZF1DXdPec7aLTmlC",
     4: "4kvSlabrnfRCQWfN0MgtgA?si=b36add73b4a74b3a",
     5: "1n6cpWo9ant4WguEo91KZh?si=617ea1c66ab6446b",
     6: "37i9dQZEVXbMDoHDwVN2tF?si=c09391805b6c4651",
