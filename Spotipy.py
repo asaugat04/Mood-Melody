@@ -4,6 +4,19 @@ from spotipy.oauth2 import SpotifyOAuth
 from spotipy.oauth2 import SpotifyClientCredentials
 import pandas as pd
 import time
+import json
+'''
+Store the client id and secret in a config.json file:
+{
+  "spotify_client_id": "your_client_id",
+  "spotify_client_secret": "your_client_secret"
+}
+'''
+
+with open('config.json') as config_file:
+    config = json.load(config_file)
+client_id = config['spotify_client_id']
+client_secret = config['spotify_client_secret']
 
 auth_manager = SpotifyClientCredentials("", "")
 sp = spotipy.Spotify(auth_manager=auth_manager)
