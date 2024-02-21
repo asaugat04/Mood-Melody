@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
-  <title>Top navbar example · Bootstrap v5.3</title>
+  <title>Mood Melody</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -15,35 +15,32 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
   <link href="navbar-static.css" rel="stylesheet">
-  <style>
-    * {
-      /* border:1px solid red; */
-    }
-  </style>
+  <link href="style.css" rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
 
-<body>
+<body style="overflow-x: hidden;">
   <nav class="navbar shadow-sm justify-content-between navbar-expand-lg bg-body-tertiary fixed-top">
     <a href="#" class="navbar-brand ms-3"><img style="height: 50px;" src="./logo.png" /></a>
     <div class="navbar_options me-4">
       <ul class="nav nav-underline">
         <li class="nav-item">
-          <button class="nav-link text-dark active" aria-current="page">Home</button>
+          <button id="home" class="nav-link text-dark active" aria-current="page">Home</button>
         </li>
         <li class="nav-item">
-          <button class="nav-link text-dark">Service</button>
+          <button id="about" class="nav-link text-dark">About US</button>
         </li>
         <li class="nav-item">
-          <button class="nav-link text-dark">About US</button>
+          <button id="start" class="btn btn-primary btn-lg p-2">Start-></button>
         </li>
       </ul>
     </div>
   </nav>
   <!-- HOME page -->
-  <div class=" justify-content-center mt-5 pt-5 ms-0 ps-2 me-0" style="width: 100vw;">
+  <div id="home-tab" class=" tab active-tab justify-content-center mt-5 pt-5 ms-0 ps-2 me-0 active-tab " style="width: 98vw; overflow: hidden;">
 
     <div class="hero-section d-flex justify-content-center align-items-center flex-wrap flex-column">
-      <h1 class="display-1  text-center mt-2 mb-5" style="width: 100vw;">Welcome to <br><strong
+      <h1 class="display-1 text-center mt-2 mb-5" style="width: 100vw;">Welcome to <br><strong
           class="text-primary">Mood Melody</strong></h1>
       <img class="m-1 rounded shadow" style=" width: 90vw;" src="./hero.jpg" class="img-fluid" alt="..." />
       <div>
@@ -60,7 +57,7 @@
     <div class="workflow d-flex justify-content-center align-items-center flex-wrap flex-column">
       <h1 class="text-primary-emphasis mb-5"><strong>How Mood Melody Works</strong></h1>
       
-      <div class="first_card align-self-start">
+      <div class="sliding_items slide-right first_card align-self-start slide-left">
         <div class="card flex-row ms-5 me-5 border-0" style="width: 90%;">
           <img src="./cover.jpg" class="card-img" style="height:auto; width: 35vw;">
           <div class="card-body ms-3">
@@ -70,7 +67,7 @@
           </div>
         </div>
       </div>
-      <div class="second_card align-self-end ms-5 mt-5 mb-5">
+      <div class="sliding_items slide-left second_card align-self-end me-2 ms-5 mt-5 mb-5">
         <h2 class="text-primary-emphasis mb-3">2. Emotion Analysis in Action</h2>
           <div class="card flex-row ms-4 me-5 mt-1 border-0" style="width: 90%;">
           <div class="card-body ms-0">
@@ -79,7 +76,7 @@
         <img src="./ai.jpg" class="card-img" alt="..." style="width:45%">
         </div>
       </div>
-      <div class="third_card align-self-end">
+      <div class="sliding_items slide-right third_card align-self-end">
         <div class="card flex-row ms-5 me-5 border-0" style="width: 90%;">
           <img src="./headphone.jpg" class="card-img" style="height:auto; width: 35vw;">
           <div class="card-body ms-3">
@@ -89,6 +86,12 @@
         </div>
       </div>
     </div>
+  </div>
+  <!-- End of home tab -->
+  <!-- page loader -->
+  <div id="loader-container" class="" >
+      <div class="loader"></div>
+  </div>
     <!-- 
       <div class="card flex-row ms-5 me-5 border-0" style="width: 90%;">
       <img src="./cover.jpg" class="card-img" alt="..." style="width:45%">
@@ -106,5 +109,9 @@
       <img src="./cover.jpg" class="card-img" alt="..." style="width:45%">
     </div> -->
     <!-- <div style="height: 1000vh;"></div> -->
+  <!-- ABOUT US page -->
+  <div id="about-tab" class="tab justify-content-center mt-5 pt-5 ms-0 ps-2 me-0 " style="width: 98vw;">
+    Hello from about us
+  </div>
 </body>
 </html>

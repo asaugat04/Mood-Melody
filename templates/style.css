@@ -1,0 +1,69 @@
+.active{
+    display: flex !important;
+}
+.slide-left {
+  --anim-start: 100vw;
+}
+.slide-right {
+  --anim-start: -100vw;
+}
+@keyframes slide {
+  from {
+    transform: translateX(var(--anim-start));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slide {
+  animation: slide 1s ease forwards;
+}
+.tab {
+  display: none;
+  transition: transform 0.3s ease;
+}
+.active-tab {
+  transform: translateX(0);
+  left: 0;
+  display: block !important;
+}
+#loader-container {
+  width: 98vw;
+  position: fixed;
+  /* background-color: var(--bs-secondary); */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  backface-visibility: hidden;
+  backdrop-filter: blur(10px) drop-shadow(0 0 10px #f80a0a);
+  display: none;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 130px;
+  margin: 0 auto;
+  height: 17px;
+  --c: var(--bs-primary) 92%, #0000;
+  background: radial-gradient(circle closest-side, var(--c)) calc(100% / -4) 0,
+    radial-gradient(circle closest-side, var(--c)) calc(100% / 4) 0;
+  background-size: calc(100% / 2) 100%;
+  animation: l14 1.5s infinite;
+}
+@keyframes l14 {
+  0% {
+    background-position: calc(100% / -4) 0, calc(100% / 4) 0;
+  }
+  50% {
+    background-position: calc(100% / -4) -14px, calc(100% / 4) 14px;
+  }
+  100% {
+    background-position: calc(100% / 4) -14px, calc(3 * 100% / 4) 14px;
+  }
+}
