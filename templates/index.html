@@ -1,125 +1,290 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <title>Mood Melody</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/navbar-static/"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"
+    />
 
-<head>
-  <title>Emotion Music Recommendation</title>
+    <link href="navbar-static.css" rel="stylesheet" />
+    <link
+      href="{{ url_for('static', filename='/css/style.css') }}"
+      rel="stylesheet"
+    />
+    <script src="{{ url_for('static', filename='/script.js') }}" defer></script>
+  </head>
 
-  <style>
-    img {
-      padding: 20px;
-      display: inline-block;
-      margin: auto;
-      width: 85%;
-    }
-  </style>
+  <body style="overflow-x: hidden">
+    <nav
+      class="navbar shadow-sm justify-content-between navbar-expand-lg bg-body-tertiary fixed-top"
+    >
+      <a href="#" class="navbar-brand ms-3"
+        ><img
+          style="height: 50px"
+          src="{{ url_for('static', filename='/images/logo.png') }}"
+      /></a>
+      <div class="navbar_options me-4">
+        <ul class="nav nav-underline">
+          <li class="nav-item">
+            <button
+              id="home"
+              class="nav-link text-dark active"
+              aria-current="page"
+            >
+              Home
+            </button>
+          </li>
+          <li class="nav-item">
+            <button id="about" class="nav-link text-dark">About US</button>
+          </li>
+          <li class="nav-item">
+            <button id="start" class="btn btn-primary btn-lg p-2">
+              Start->
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- HOME page -->
+    <div
+      id="home-tab"
+      class="tab justify-content-center mt-5 pt-5 ms-0 ps-2 me-0"
+      style="width: 98vw; overflow: hidden"
+    >
+      <div
+        class="hero-section d-flex justify-content-center align-items-center flex-wrap flex-column"
+      >
+        <h1 class="display-1 text-center mt-2 mb-5" style="width: 100vw">
+          Welcome to <br /><strong class="text-primary">Mood Melody</strong>
+        </h1>
+        <img
+          class="m-1 rounded shadow"
+          style="width: 90vw"
+          src="{{ url_for('static', filename='/images/hero.jpg') }}"
+          class="img-fluid"
+          alt="..."
+        />
+        <div>
+          <em class="lead text-primary-emphasis fs-1 m-3"
+            >" The Right Tune for Every Emotion. "</em
+          >
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css2?family=Bigelow+Rules&display=swap" rel="stylesheet">
-  <link type="text/css" href="{{ url_for('static', filename='/css/style.css') }}" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-    crossorigin="anonymous"></script>
-</head>
+          <p class="description mb-5 mt-3">
+            Let your feelings guide your playlist. Experience music discovery
+            powered by your emotions.
+          </p>
+        </div>
+        <br />
+        <button type="button" class="fs-2 btn btn-outline-primary">
+          Let's Get<br />started
+        </button>
+      </div>
 
-<body style = "
-  background: #b3ffb3">
+      <hr />
+      <div
+        class="workflow d-flex justify-content-center align-items-center flex-wrap flex-column"
+      >
+        <h1 class="text-primary-emphasis mb-5">
+          <strong>How Mood Melody Works</strong>
+        </h1>
 
-  <div id="body">
-
-    <div>
-
-      <h1 align="center" style="color: #ff3300;
-	  margin: 40px;">
-        Emotion Music Recommender
-      </h1>
-
+        <div
+          class="sliding_items slide-right first_card align-self-start slide-left"
+        >
+          <div class="card flex-row ms-5 me-5 border-0" style="width: 90%">
+            <img
+              src="{{ url_for('static', filename='/images/cover.jpg') }}"
+              class="card-img"
+              style="height: auto; width: 35vw"
+            />
+            <div class="card-body ms-3">
+              <h2 class="text-primary-emphasis mb-3">
+                1. Capture Your Expression
+              </h2>
+              <p class="card-text ms-5">
+                Begin your musical journey with a simple smile, a glance, or any
+                expression that you're feeling at this moment. Using your
+                webcam, MoodMelody captures your current emotion in real-time.
+                Don't worry about privacy; this process is secure and respects
+                your confidentiality. No photos are stored or shared. It's just
+                the first step to discovering a playlist as unique as your
+                feelings today. Ready to see what your emotions sound like?
+                content.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sliding_items slide-left second_card align-self-end me-2 ms-5 mt-5 mb-5"
+        >
+          <h2 class="text-primary-emphasis mb-3">
+            2. Emotion Analysis in Action
+          </h2>
+          <div class="card flex-row ms-4 me-5 mt-1 border-0" style="width: 90%">
+            <div class="card-body ms-0">
+              <p class="card-text ms-0 me-5">
+                Unlock the power of your emotions with our state-of-the-art
+                emotion analysis technology. By simply capturing your facial
+                expression, MoodMelody's advanced AI algorithms instantly
+                analyze your current emotional state. This process involves
+                identifying key facial markers that signify emotions such as
+                happiness, sadness, surprise, and more. Our system then
+                interprets these markers in real time, allowing us to understand
+                your mood accurately.
+              </p>
+            </div>
+            <img
+              src="{{ url_for('static', filename='/images/ai.jpg') }}"
+              class="card-img"
+              alt="..."
+              style="width: 45%"
+            />
+          </div>
+        </div>
+        <div class="sliding_items slide-right third_card align-self-end">
+          <div class="card flex-row ms-5 me-5 border-0" style="width: 90%">
+            <img
+              src="{{ url_for('static', filename='/images/headphone.jpg') }}"
+              class="card-img"
+              style="height: auto; width: 35vw"
+            />
+            <div class="card-body ms-3">
+              <h2 class="text-primary-emphasis mb-3">
+                3. Enjoy Your Personalized Music
+              </h2>
+              <p class="card-text ms-5">
+                Dive into a musical journey that’s as unique as your emotions.
+                With MoodMelody, every playlist is a reflection of how you feel
+                at this moment. Gone are the days of generic playlists that
+                barely scratch the surface of your mood. Our advanced emotion
+                recognition technology curates a music selection that resonates
+                deeply with your current state, whether you’re elated,
+                contemplative, or in need of an energy boost.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of home tab -->
+    <!-- page loader -->
+    <div id="loader-container" class="">
+      <div class="loader"></div>
+    </div>
+    <!-- 
+      <div class="card flex-row ms-5 me-5 border-0" style="width: 90%;">
+      <img src="./cover.jpg" class="card-img" alt="..." style="width:45%">
+      <div class="card-body">
+        <p class="card-text ms-5 ">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+      </div>
     </div>
 
-    <div style="
-        width: 50%;
-        float: left;
-      
-        margin: auto;
-        padding-bottom:25px;
-        text-align: center;
-      ">
-
-    <h2 align="center" style="color: #ff3300;">Emotion Detector
-    </h2>
-
-    <div style="
-        margin: 10px;
-        text-align: center;
-        
-      "> 
-    
-      <img class ="outer-shadow" id="bg" class="center img-fluid" src="{{ url_for('video_feed') }}" />
-  
+    <div class="card flex-row ms-5 me-5 mt-1 border-0" style="width: 90%;">
+      <div class="card-body">
+        <p class="card-text me-5 ">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+      </div>
+      <img src="./cover.jpg" class="card-img" alt="..." style="width:45%">
+    </div> -->
+    <!-- <div style="height: 1000vh;"></div> -->
+    <!-- ABOUT US page -->
+    <div
+      id="about-tab"
+      class="tab justify-content-center mt-5 pt-5 ms-0 ps-2 me-0"
+      style="width: 98vw"
+    >
+      Hello from about us
     </div>
+    <!-- End of about us tab -->
+    <!-- Application -->
+    <div
+      id="application-tab"
+      class="tab active-tab justify-content-center mt-5 pt-5 ms-0 ps-2 me-0 "
+      style="width: 98vw"
+    >
+      <div class="main-container">
+        <div class="video-container">
+          <canvas id="canvas"></canvas>
+          <!-- <video
+            controls
+            id="video"
+            src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+          ></video> -->
+          <img class="img-fluid" id="video" src="{{ url_for('video_feed') }}" >
+        </div>
 
+        <div id="ResultArea" class="table-container ">
+          
+        </div>
+      </div>
     </div>
-    
-    <div style="
-        width: 50%;
-        float: left;
-        margin: auto;
-        text-align: center;
-      ">
+    <!-- End of application tab -->
+    <script>
+      // Periodically update the table
+setInterval(function() {
+    fetch('/t')
+    .then(response => response.json())
+    .then(data => {
+        createHtmlTable(data);
+        console.log(data, "DATA");
+    })
+    .catch(error => console.error('Error:', error));
+}, 1000); // Consider adjusting the interval as needed
 
-        <h2 align="center" style="color: #ff3300;">Song Recommendations
-        </h2>
-      
-     </div>
+function createHtmlTable(data) {
+    // Clear the ResultArea
+    const resultArea = document.getElementById("ResultArea");
+    resultArea.innerHTML = "";
 
-    <div class ="outer-shadow" id="ResultArea" style="
-        padding: 15px;
-        width: 49%;
-        float: left;
-        margin: auto;
-        text-align: center;
-        margin-bottom:15px;
-      ">
-    </div>
+    // Create a table element
+    var table = document.createElement("table");
+    table.className = "table table-striped table-bordered table-hover table-sm table-responsive";
+    resultArea.appendChild(table);
 
-  </div>
+    // Create the table header row
+    var headerRow = table.insertRow();
+    ["Name", "Album", "Artist"].forEach(text => {
+        // var cell = headerRow.insert();
+        // cell.textContent = text;
+        var tblheader = document.createElement("th");
+        tblheader.textContent = text;
+        headerRow.appendChild(tblheader);
+    });
 
-</body>
+    // Populate the table with data
+    data.forEach(item => {
+        var row = table.insertRow();
+        var nameCell = row.insertCell();
+        nameCell.textContent = item.Name;
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type=text/javascript>
+        var albumCell = row.insertCell();
+        albumCell.textContent = item.Album;
 
-// Constantly Update Table
-    setInterval(function() {
-        $.getJSON('/t', function(data) {
-            CreateHtmlTable(data);
-            console.log(data,"DATA");
-          });
-        return false;
-    }, 100);
+        var artistCell = row.insertCell();
+        artistCell.textContent = item.Artist;
+    });
+}
 
-    function CreateHtmlTable(data) {
-      //Clear result div
-      $("#ResultArea").html("");
-      //Crate table html tag
-      var table = $("<table class = 'table table-striped table-light table-bordered table-hover table-sm table-responsive' id=DynamicTable></table>").appendTo("#ResultArea");
-      //Create table header row
-      var rowHeader = 
-      $("<tr></tr>").appendTo(table);
-      $("<td></td>").text("Name").appendTo(rowHeader);
-      $("<td></td").text("Album").appendTo(rowHeader);
-      $("<td></td>").text("Artist").appendTo(rowHeader)
-      //Get JSON data by calling action method in controller
-      $.each(data, function (i, value) {
-
-          //Create new row for each record
-          var row = 
-          $("<tr></tr>").appendTo(table);
-          $("<td></td>").text(value.Name).appendTo(row);
-          $("<td></td>").text(value.Album).appendTo(row);
-          $("<td></td>").text(value.Artist).appendTo(row);
-      });
-    }
-
-  </script>
-
+    </script>
+  </body>
 </html>

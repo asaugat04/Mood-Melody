@@ -141,3 +141,6 @@ def music_rec():
 	df = df[['Name','Album','Artist']]
 	df = df.head(15)
 	return df
+	
+def real_time_emotion():
+	return emotion_dict[show_text[0]]

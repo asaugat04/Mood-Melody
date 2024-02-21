@@ -27,13 +27,16 @@ def video_feed():
     return Response(
         gen(VideoCamera()), mimetype="multipart/x-mixed-replace; boundary=frame"
     )
-
+@app.route("/live_emotion")
+def live_emotion():
+    return real_time_emotion()
 
 @app.route("/t")
 def gen_table():
+    print(df1)
     return df1.to_json(orient="records")
 
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(port=5500)
+    app.run(port=6969)
