@@ -147,32 +147,24 @@ def real_time_emotion():
 	return emotion_dict[show_text[0]]
 	
 	# test code below
-def recognizeimg(image):
-		image=cv2.resize(image,(600,500))
-		gray=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
-		face_rects=face_cascade.detectMultiScale(gray,1.3,5)
-		df1 = pd.read_csv(music_dist[show_text[0]])
-		df1 = df1[['Name','Album','Artist']]
-		df1 = df1.head(15)
-		for (x,y,w,h) in face_rects:
-			cv2.rectangle(image,(x,y-50),(x+w,y+h+10),(0,255,0),2)
-			roi_gray_frame = gray[y:y + h, x:x + w]
-			cropped_img = np.expand_dims(np.expand_dims(cv2.resize(roi_gray_frame, (48, 48)), -1), 0)
-			# this is the prediction part
-			prediction = emotion_model.predict(cropped_img)
-			print("The precicted emotion is :\n")
-			print(prediction)
-			maxindex = int(np.argmax(prediction))
-			show_text[0] = maxindex 
-			#print("===========================================",music_dist[show_text[0]],"===========================================")
-			#print(df1)
-			cv2.putText(image, emotion_dict[maxindex], (x+20, y-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
-			df1 = music_rec()
-			
-		global last_frame1
-		last_frame1 = image.copy()
-		pic = cv2.cvtColor(last_frame1, cv2.COLOR_BGR2RGB)     
-		img = Image.fromarray(last_frame1)
-		img = np.array(img)
-		# ret, jpeg = cv2.imencode('.jpg', img)
-		return img, df1
+def emotion_rec(image):
+    image=cv2.resize(image,(600,500))
+    gray=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+    face_rects=face_cascade.detectMultiScale(gray,1.3,5)
+    for (x,y,w,h) in face_rects:
+        cv2.rectangle(image,(x,y-50),(x+w,y+h+10),(0,255,0),2)
+        roi_gray_frame = gray[y:y + h, x:x + w]
+        cropped_img = np.expand_dims(np.expand_dims(cv2.resize(roi_gray_frame, (48, 48)), -1), 0)
+        # this is the prediction part
+        prediction = emotion_model.predict(cropped_img)
+
+        maxindex = int(np.argmax(prediction))
+        detected_emotion = emotion_dict[maxindex]
+        #print(df1)
+        cv2.putText(image, emotion_dict[maxindex], (x+20, y-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
+    last_frame = image.copy()
+    pic = cv2.cvtColor(last_frame, cv2.COLOR_BGR2RGB)     
+    img = Image.fromarray(last_frame)
+    img = np.array(img)
+    # ret, jpeg = cv2.imencode('.jpg', img)
+    return img,detected_emotion

@@ -1,6 +1,7 @@
 from flask import Flask, render_template, Response, jsonify
 import gunicorn
 from camera import *
+from PIL import Image
 
 app = Flask(__name__)
 
@@ -36,6 +37,27 @@ def gen_table():
     print(df1)
     return df1.to_json(orient="records")
 
+@app.route('/recognize', methods=['POST'])
+def upload_file():
+    # Check if the post request has the file part
+    if 'file' not in request.files:
+        return 'No file part in the request', 400
+    file = request.files['file']
+    # If the user does not select a file, the browser submits an
+    # empty file without a filename.
+    if file.filename == '':
+        return 'No selected file', 400
+    if file and allowed_file(file.filename):
+        image = Image.open(file.stream)
+        image_array = np.array(image)
+        [picture,detected_emotion]=emotion_rec(image_array)
+        return jsonify({"emotion": detected_emotion})
+
+
+def allowed_file(filename):
+    # Check if file extension is allowed
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in {'png', 'jpg', 'jpeg', 'gif'}
 
 if __name__ == "__main__":
     app.debug = True
