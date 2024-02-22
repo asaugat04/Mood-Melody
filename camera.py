@@ -118,6 +118,7 @@ class VideoCamera(object):
 			cv2.rectangle(image,(x,y-50),(x+w,y+h+10),(0,255,0),2)
 			roi_gray_frame = gray[y:y + h, x:x + w]
 			cropped_img = np.expand_dims(np.expand_dims(cv2.resize(roi_gray_frame, (48, 48)), -1), 0)
+			# this is the prediction part
 			prediction = emotion_model.predict(cropped_img)
 
 			maxindex = int(np.argmax(prediction))
