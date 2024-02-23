@@ -67,7 +67,7 @@
     <!-- HOME page -->
     <div
       id="home-tab"
-      class="tab justify-content-center mt-5 pt-5 ms-0 ps-2 me-0"
+      class="tab active-tab justify-content-center mt-5 pt-5 ms-0 ps-2 me-0"
       style="width: 98vw; overflow: hidden"
     >
       <div
@@ -219,72 +219,73 @@
     <!-- Application -->
     <div
       id="application-tab"
-      class="tab active-tab justify-content-center mt-5 pt-5 ms-0 ps-2 me-0 "
+      class="tab justify-content-center mt-5 pt-5 ms-0 ps-2 me-0"
       style="width: 98vw"
     >
       <div class="main-container">
         <div class="video-container">
-          <canvas id="canvas"></canvas>
-          <!-- <video
-            controls
-            id="video"
-            src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-          ></video> -->
-          <img class="img-fluid" id="video" src="{{ url_for('video_feed') }}" >
+          <div class="video_feed">
+            <canvas id="canvas"></canvas>
+            <!-- <video
+              controls
+              id="video"
+              src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+            ></video> -->
+            <img class="img-fluid" id="video" src="{{ url_for('video_feed') }}" >
+          </div>
         </div>
-
-        <div id="ResultArea" class="table-container ">
-          
+        <div class="table-container">
+          <div id="ResultArea" class="table-container"></div>
         </div>
       </div>
     </div>
     <!-- End of application tab -->
     <script>
       // Periodically update the table
-setInterval(function() {
-    fetch('/t')
-    .then(response => response.json())
-    .then(data => {
-        createHtmlTable(data);
-        console.log(data, "DATA");
-    })
-    .catch(error => console.error('Error:', error));
-}, 1000); // Consider adjusting the interval as needed
+      intid = setInterval(function () {
+        fetch("/t")
+          .then((response) => response.json())
+          .then((data) => {
+            createHtmlTable(data);
+            console.log(data, "DATA");
+          })
+          .catch((error) => console.error("Error:", error));
+      }, 10); // Consider adjusting the interval as needed
 
-function createHtmlTable(data) {
-    // Clear the ResultArea
-    const resultArea = document.getElementById("ResultArea");
-    resultArea.innerHTML = "";
+      function createHtmlTable(data) {
+        // Clear the ResultArea
+        const resultArea = document.getElementById("ResultArea");
+        resultArea.innerHTML = "";
 
-    // Create a table element
-    var table = document.createElement("table");
-    table.className = "table table-striped table-bordered table-hover table-sm table-responsive";
-    resultArea.appendChild(table);
+        // Create a table element
+        var table = document.createElement("table");
+        table.className =
+          "table table-striped table-bordered table-hover table-sm table-responsive";
+        resultArea.appendChild(table);
 
-    // Create the table header row
-    var headerRow = table.insertRow();
-    ["Name", "Album", "Artist"].forEach(text => {
-        // var cell = headerRow.insert();
-        // cell.textContent = text;
-        var tblheader = document.createElement("th");
-        tblheader.textContent = text;
-        headerRow.appendChild(tblheader);
-    });
+        // Create the table header row
+        var headerRow = table.insertRow();
+        ["Name", "Album", "Artist"].forEach((text) => {
+          // var cell = headerRow.insert();
+          // cell.textContent = text;
+          var tblheader = document.createElement("th");
+          tblheader.textContent = text;
+          headerRow.appendChild(tblheader);
+        });
 
-    // Populate the table with data
-    data.forEach(item => {
-        var row = table.insertRow();
-        var nameCell = row.insertCell();
-        nameCell.textContent = item.Name;
+        // Populate the table with data
+        data.forEach((item) => {
+          var row = table.insertRow();
+          var nameCell = row.insertCell();
+          nameCell.textContent = item.Name;
 
-        var albumCell = row.insertCell();
-        albumCell.textContent = item.Album;
+          var albumCell = row.insertCell();
+          albumCell.textContent = item.Album;
 
-        var artistCell = row.insertCell();
-        artistCell.textContent = item.Artist;
-    });
-}
-
+          var artistCell = row.insertCell();
+          artistCell.textContent = item.Artist;
+        });
+      }
     </script>
   </body>
 </html>

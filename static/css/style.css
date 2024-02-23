@@ -1,3 +1,5 @@
+
+
 .active{
     display: flex !important;
 }
@@ -87,20 +89,21 @@
   }
   
   
-  .video-container {
-    /* background: #161a20; */
+  .video_feed {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    width: 100%;
     position: relative;
   }
   
   .main-container{
-    display: grid;
-    grid-template-columns: 1fr 400px 1fr;
-    grid-template-areas:
-        "video . table"
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .video-container{
+    max-width: 300px;
   }
   

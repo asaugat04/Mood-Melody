@@ -40,7 +40,8 @@ def getTrackFeatures(id):
     # release_date = track_info['album']['release_date']
     # length = track_info['duration_ms']
     # popularity = track_info['popularity']
-
+    # album_cover_url = track['album']['images'][0]['url']
+    
     track_data = [name, album, artist]  # , release_date, length, popularity
     return track_data
 
