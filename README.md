@@ -22,6 +22,7 @@ Flask:
 - Tensorflow
 - Spotipy
 - Flask
+- Bootstrap (For css styling)
 
 # Dataset:
 The well-known FER2013 dataset served as the basis for this project. Using this information, models can identify seven different emotions.The dataset can be found <a href = "https://www.kaggle.com/msambare/fer2013">here</a>.
