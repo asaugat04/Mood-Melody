@@ -1,5 +1,6 @@
-
-
+.bg-primary {
+  background-color: #405067 !important; 
+}
 .active{
     display: flex !important;
 }
@@ -12,6 +13,7 @@
 @keyframes slide {
   from {
     transform: translateX(var(--anim-start));
+    
   }
   to {
     transform: translateX(0);
