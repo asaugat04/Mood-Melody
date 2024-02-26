@@ -1,5 +1,28 @@
-.bg-primary {
-  background-color: #405067 !important; 
+/* 
+  yellow:  #F9BE08
+  light-yellow: #EFD30B
+  white: #F9F8F4
+  light-dark: #DFDFD9
+  black: #1A1A19
+*/
+
+*{
+  --bs-primary-rgb:249,190,8;
+  --bs-primary-text-emphasis:#EFD30B;
+  --bs-btn-bg: #F9BE08;
+  --bs-btn-border-color: #F9BE08;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #F9BE08;
+  --bs-btn-hover-border-color: #F9BE08;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #F9BE08;
+  --bs-btn-active-border-color: #F9BE08;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #DFDFD9;
+  --bs-btn-disabled-border-color: #DFDFD9;
+  --bs-secondary-rgb:223,223,217;
 }
 .active{
     display: flex !important;

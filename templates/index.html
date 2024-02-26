@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="auto">
+<html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -39,7 +39,7 @@
     >
       <a href="#" class="navbar-brand ms-3"
         ><img
-          style="height: 50px"
+          style="height: 60px; transform: scale(1.5);"
           src="{{ url_for('static', filename='/images/logo.png') }}"
       /></a>
       <div class="navbar_options me-4">
@@ -47,19 +47,20 @@
           <li class="nav-item">
             <button
               id="home"
-              class="nav-link text-dark active"
+              class="nav-link text-secondary active"
               aria-current="page"
             >
               Home
             </button>
           </li>
           <li class="nav-item">
-            <button id="about" class="nav-link text-dark">About US</button>
+            <button id="about" class="nav-link text-secondary">About US</button>
           </li>
           <li class="nav-item">
+            <a href="/app">
             <button id="start" class="btn btn-primary btn-lg p-2">
               Start->
-            </button>
+            </button></a>
           </li>
         </ul>
       </div>
@@ -217,75 +218,6 @@
     </div>
     <!-- End of about us tab -->
     <!-- Application -->
-    <div
-      id="application-tab"
-      class="tab justify-content-center mt-5 pt-5 ms-0 ps-2 me-0"
-      style="width: 98vw"
-    >
-      <div class="main-container">
-        <div class="video-container">
-          <div class="video_feed">
-            <canvas id="canvas"></canvas>
-            <!-- <video
-              controls
-              id="video"
-              src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-            ></video> -->
-            <img class="img-fluid" id="video" src="{{ url_for('video_feed') }}" >
-          </div>
-        </div>
-        <div class="table-container">
-          <div id="ResultArea" class="table-container"></div>
-        </div>
-      </div>
-    </div>
-    <!-- End of application tab -->
-    <script>
-      // Periodically update the table
-      intid = setInterval(function () {
-        fetch("/t")
-          .then((response) => response.json())
-          .then((data) => {
-            createHtmlTable(data);
-            console.log(data, "DATA");
-          })
-          .catch((error) => console.error("Error:", error));
-      }, 10); // Consider adjusting the interval as needed
-
-      function createHtmlTable(data) {
-        // Clear the ResultArea
-        const resultArea = document.getElementById("ResultArea");
-        resultArea.innerHTML = "";
-
-        // Create a table element
-        var table = document.createElement("table");
-        table.className =
-          "table table-striped table-bordered table-hover table-sm table-responsive";
-        resultArea.appendChild(table);
-
-        // Create the table header row
-        var headerRow = table.insertRow();
-        ["Name", "Album", "Artist"].forEach((text) => {
-          // var cell = headerRow.insert();
-          // cell.textContent = text;
-          var tblheader = document.createElement("th");
-          tblheader.textContent = text;
-          headerRow.appendChild(tblheader);
-        });
-
-        // Populate the table with data
-        data.forEach((item) => {
-          var row = table.insertRow();
-          var nameCell = row.insertCell();
-          nameCell.textContent = item.Name;
-
-          var albumCell = row.insertCell();
-          albumCell.textContent = item.Album;
-
-          var artistCell = row.insertCell();
-          artistCell.textContent = item.Artist;
-        });
-      }
-    </script>
+    
   </body>
 </html>

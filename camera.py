@@ -112,7 +112,7 @@ class VideoCamera(object):
 		gray=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
 		face_rects=face_cascade.detectMultiScale(gray,1.3,5)
 		df1 = pd.read_csv(music_dist[show_text[0]])
-		df1 = df1[['Name','Album','Artist']]
+		df1 = df1[['Name','Album','Artist','Link']]
 		df1 = df1.head(15)
 		for (x,y,w,h) in face_rects:
 			cv2.rectangle(image,(x,y-50),(x+w,y+h+10),(0,255,0),2)
@@ -139,7 +139,7 @@ class VideoCamera(object):
 def music_rec():
 	# print('---------------- Value ------------', music_dist[show_text[0]])
 	df = pd.read_csv(music_dist[show_text[0]])
-	df = df[['Name','Album','Artist']]
+	df = df[['Name','Album','Artist','Link']]
 	df = df.head(15)
 	return df
 	

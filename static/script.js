@@ -28,7 +28,7 @@ const tabChangingBtns = [homeBtn, aboutBtn];
 const hometab = document.getElementById("home-tab");
 const abouttab = document.getElementById("about-tab");
 const applicationtab = document.getElementById("application-tab");
-const tabs = [hometab, abouttab, applicationtab];
+const tabs = [hometab, abouttab];
 
 homeBtn.addEventListener("click", () => {
   showLoader();
@@ -48,26 +48,3 @@ aboutBtn.addEventListener("click", () => {
   aboutBtn.classList.add("active");
   setTimeout(hideLoader, 200);
 });
-
-startBtn.addEventListener("click", () => {
-  showLoader();
-  tabs.forEach((tab) => tab.classList.remove("active-tab"));
-  applicationtab.classList.add("active-tab");
-  tabChangingBtns.forEach((btn) => btn.classList.remove("active"));
-  setTimeout(hideLoader, 200);
-});
-// ambient mode in video
-var video = document.getElementById("video");
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
-
-canvas.style.width = video.clientWidth + "px";
-canvas.style.height = video.clientHeight + "px";
-
-function getCurrentImage() {
-  canvas.style.width = video.clientWidth + "px";
-  canvas.style.height = video.clientHeight + "px";
-  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-}
-
-setInterval(getCurrentImage, 100);

@@ -1,0 +1,33 @@
+/* 
+  yellow:  #F9BE08
+  light-yellow: #EFD30B
+  white: #F9F8F4
+  light-dark: #DFDFD9
+  black: #1A1A19
+*/
+:root{
+    --bs-primary: #F9BE08; 
+    --bs-primary-rgb:249, 190, 8;
+    --bs-secondary: #DFDFD9;
+    --bs-secondary-rgb: 223, 223, 217;
+
+
+}
+
+.top-banner>h1{
+    animation: slidedown 0.1s ease-in-out 0.1s forwards;
+    transform: translateY(-100%);
+    z-index: -1;
+}
+@keyframes slidedown {
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+.video-container{
+    height: 300px;
+}

@@ -15,6 +15,11 @@ def index():
     print(df1.to_json(orient="records"))
     return render_template("index.html", headings=headings, data=df1)
 
+@app.route('/app')
+def app_page():
+    # print(df1.to_json(orient="records"))
+    return render_template("app.html")
+
 
 def gen(camera):
     while True:
