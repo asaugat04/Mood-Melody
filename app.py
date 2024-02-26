@@ -42,7 +42,12 @@ def gen_table():
     print(df1)
     return df1.to_json(orient="records")
 
-@app.route('/recognize', methods=['POST'])
+@app.route("/get_recommendations")
+def get_recommendations():
+    [emotion,df1] = max_emotion_reccomendation()
+    return jsonify({"detected_emotion":emotion,"music_data":df1.to_json(orient="records")if df1 is not None else None})
+
+@app.route('/image', methods=['POST'])
 def upload_file():
     # Check if the post request has the file part
     if 'file' not in request.files:

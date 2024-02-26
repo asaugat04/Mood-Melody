@@ -147,10 +147,12 @@ def real_time_emotion():
 	return emotion_dict[show_text[0]]
 	
 	# test code below
+
 def emotion_rec(image):
     image=cv2.resize(image,(600,500))
     gray=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
     face_rects=face_cascade.detectMultiScale(gray,1.3,5)
+    detected_emotion = None  # initialize detected_emotion
     for (x,y,w,h) in face_rects:
         cv2.rectangle(image,(x,y-50),(x+w,y+h+10),(0,255,0),2)
         roi_gray_frame = gray[y:y + h, x:x + w]
@@ -168,3 +170,26 @@ def emotion_rec(image):
     img = np.array(img)
     # ret, jpeg = cv2.imencode('.jpg', img)
     return img,detected_emotion
+
+
+	# 
+def max_emotion_reccomendation():
+	emotion_list = []
+	cap1 = WebcamVideoStream(src=0).start()
+	for i in range(10):
+		time.sleep(0.5)
+		image = cap1.read()
+		[jpeg,emotion]=emotion_rec(image)
+		print(emotion)
+		if emotion is not None:
+			emotion_list.append(emotion)
+	print(emotion_list)
+	cap1.stop()
+	max_emotion = max(set(emotion_list), key = emotion_list.count) if emotion_list else "neutral"
+	if max_emotion == "neutral":
+		return max_emotion,None
+	# read music data from csv file
+	df = pd.read_csv('songs/'+max_emotion.lower()+'.csv')
+	df = df[['Name','Album','Artist','Link']]
+	df = df.head(15)
+	return max_emotion,df 

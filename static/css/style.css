@@ -96,39 +96,3 @@
 }
 
 /* canvas */
-
-#canvas {
-    border-radius: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    filter: blur(30px);
-    opacity: 0.5;
-  }
-  
-  #video {
-    width: 600px;
-    border-radius: 10px;
-    position: relative;
-  }
-  
-  
-  .video_feed {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  
-  .main-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  .video-container{
-    max-width: 300px;
-  }
-  

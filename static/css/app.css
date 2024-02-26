@@ -5,29 +5,55 @@
   light-dark: #DFDFD9
   black: #1A1A19
 */
-:root{
-    --bs-primary: #F9BE08; 
-    --bs-primary-rgb:249, 190, 8;
-    --bs-secondary: #DFDFD9;
-    --bs-secondary-rgb: 223, 223, 217;
-
-
+:root {
+  --bs-primary: #f9be08;
+  --bs-primary-rgb: 249, 190, 8;
+  --bs-secondary: #dfdfd9;
+  --bs-secondary-rgb: 223, 223, 217;
+  --bs-primary-bg-subtle: #efd30b;
 }
 
-.top-banner>h1{
-    animation: slidedown 0.1s ease-in-out 0.1s forwards;
-    transform: translateY(-100%);
-    z-index: -1;
+.top-banner > h1 {
+  animation: slidedown 0.1s ease-in-out 0.1s forwards;
+  transform: translateY(-100%);
+  z-index: -1;
 }
 @keyframes slidedown {
-    0%{
-        transform: translateY(-100%);
-    }
-    100%{
-        transform: translateY(0);
-    }
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
-.video-container{
-    height: 300px;
+.video-container {
+  height: 300px;
+}
+.video-feed-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+#canvas {
+  z-index: -1;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(30px);
+  opacity: 0.5;
+}
+
+video {
+  width: 600px;
+  border-radius: 10px;
+  position: relative;
+}
+/* ambient mode end */
+#generateButton:hover {
+  color: #1a1a19 !important;
 }
