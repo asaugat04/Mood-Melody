@@ -34,16 +34,16 @@ def getTrackIDs(user, playlist_id):
 def getTrackFeatures(id):
     track_info = sp.track(id)
 
-    name = track_info["name"]
-    album = track_info["album"]["name"]
-    artist = track_info["album"]["artists"][0]["name"]
+    name = track_info["name"] or "null"
+    album = track_info["album"]["name"] or "null"
+    artist = track_info["album"]["artists"][0]["name"] or "null"
     # release_date = track_info['album']['release_date']
     # length = track_info['duration_ms']
     # popularity = track_info['popularity']
-    # album_cover_url = track['album']['images'][0]['url']
-    preview_url = track_info["preview_url"]
+    image = track_info['album']['images'][0]['url'] or "null"
+    preview_url = track_info["preview_url"] or "No Preview Available"
     
-    track_data = [name, album, artist,preview_url]  # , release_date, length, popularity
+    track_data = [name, album, artist,preview_url,image]  # , release_date, length, popularity
     return track_data
 
 
@@ -59,13 +59,13 @@ emotion_dict = {
     6: "Surprised",
 }
 music_dist = {
-    0: "0l9dAmBrUJLylii66JOsHB?si=e1d97b8404e34343",
-    1: "1n6cpWo9ant4WguEo91KZh?si=617ea1c66ab6446b ",
-    2: "4cllEPvFdoX6NIVWPKai9I?si=dfa422af2e8448ef",
+    0: "0KPEhXA3O9jHFtpd1Ix5OB",
+    1: "3qgzMg4m5tvf16PzlPgGa9",
+    2: "3d94bQehRibDa0NMUqcdPh",
     3: "37i9dQZF1DXdPec7aLTmlC",
     4: "4kvSlabrnfRCQWfN0MgtgA?si=b36add73b4a74b3a",
-    5: "1n6cpWo9ant4WguEo91KZh?si=617ea1c66ab6446b",
-    6: "37i9dQZEVXbMDoHDwVN2tF?si=c09391805b6c4651",
+    5: "3Ar6l24242VBGny7S9VxcD",
+    6: "51Ca05x9QkTaA63dg4NWyP",
 }
 
 """
@@ -82,7 +82,7 @@ for i in range(len(track_ids)):
     track_data = getTrackFeatures(track_ids[i])
     track_list.append(track_data)
     df = pd.DataFrame(
-        track_list, columns=["Name", "Album", "Artist", "Link"]
+        track_list, columns=["Name", "Album", "Artist", "Link", "Image"]
     )  # ,'Release_date','Length','Popularity'
     df.to_csv("songs/angry.csv")
 print("CSV Generated")
@@ -94,7 +94,7 @@ for i in range(len(track_ids)):
     track_data = getTrackFeatures(track_ids[i])
     track_list.append(track_data)
     df = pd.DataFrame(
-        track_list, columns=["Name", "Album", "Artist","Link"]
+        track_list, columns=["Name", "Album", "Artist", "Link", "Image"]
     )  # ,'Release_date','Length','Popularity'
     df.to_csv("songs/disgusted.csv")
 print("CSV Generated")
@@ -106,7 +106,7 @@ for i in range(len(track_ids)):
     track_data = getTrackFeatures(track_ids[i])
     track_list.append(track_data)
     df = pd.DataFrame(
-        track_list, columns=["Name", "Album", "Artist","Link"]
+        track_list, columns=["Name", "Album", "Artist", "Link", "Image"]
     )  # ,'Release_date','Length','Popularity'
     df.to_csv("songs/fearful.csv")
 print("CSV Generated")
@@ -118,7 +118,7 @@ for i in range(len(track_ids)):
     track_data = getTrackFeatures(track_ids[i])
     track_list.append(track_data)
     df = pd.DataFrame(
-        track_list, columns=["Name", "Album", "Artist","Link"]
+        track_list, columns=["Name", "Album", "Artist", "Link", "Image"]
     )  # ,'Release_date','Length','Popularity'
     df.to_csv("songs/happy.csv")
 print("CSV Generated")
@@ -130,7 +130,7 @@ for i in range(len(track_ids)):
     track_data = getTrackFeatures(track_ids[i])
     track_list.append(track_data)
     df = pd.DataFrame(
-        track_list, columns=["Name", "Album", "Artist","Link"]
+        track_list, columns=["Name", "Album", "Artist", "Link", "Image"]
     )  # ,'Release_date','Length','Popularity'
     df.to_csv("songs/neutral.csv")
 print("CSV Generated")
@@ -142,7 +142,7 @@ for i in range(len(track_ids)):
     track_data = getTrackFeatures(track_ids[i])
     track_list.append(track_data)
     df = pd.DataFrame(
-        track_list, columns=["Name", "Album", "Artist","Link"]
+        track_list, columns=["Name", "Album", "Artist", "Link", "Image"]
     )  # ,'Release_date','Length','Popularity'
     df.to_csv("songs/sad.csv")
 print("CSV Generated")
@@ -154,7 +154,7 @@ for i in range(len(track_ids)):
     track_data = getTrackFeatures(track_ids[i])
     track_list.append(track_data)
     df = pd.DataFrame(
-        track_list, columns=["Name", "Album", "Artist","Link"]
+        track_list, columns=["Name", "Album", "Artist", "Link", "Image"]
     )  # ,'Release_date','Length','Popularity'
     df.to_csv("songs/surprised.csv")
 print("CSV Generated")

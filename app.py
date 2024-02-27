@@ -45,7 +45,7 @@ def gen_table():
 @app.route("/get_recommendations")
 def get_recommendations():
     [emotion,df1] = max_emotion_reccomendation()
-    return jsonify({"detected_emotion":emotion,"music_data":df1.to_json(orient="records")if df1 is not None else None})
+    return jsonify({"detected_emotion":emotion,"music_data":df1.to_dict(orient="records")if df1 is not None else None})
 
 @app.route('/image', methods=['POST'])
 def upload_file():

@@ -57,3 +57,63 @@ video {
 #generateButton:hover {
   color: #1a1a19 !important;
 }
+
+/* loader */
+.loading {
+  font-size: 2em;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  text-align: center;
+}
+.loading span {
+  display: inline-block;
+  margin: 0 -0.05em;
+}
+
+/* code #1 */
+.loading01 span {
+  animation: loading01 0.8s infinite alternate;
+}
+.loading01 span:nth-child(1) {
+  animation-delay: 0s;
+}
+.loading01 span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.loading01 span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.loading01 span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.loading01 span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.loading01 span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.loading01 span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+@keyframes loading01 {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(var(--bs-primary-bg-subtle) 0 0) 0/0% no-repeat
+    #ddd;
+  animation: l1 2s infinite linear;
+}
+@keyframes l1 {
+  100% {
+    background-size: 100%;
+  }
+}

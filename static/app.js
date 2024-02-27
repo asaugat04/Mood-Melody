@@ -1,31 +1,4 @@
-// document.addEventListener('DOMContentLoaded', function () {
-//     var video = document.getElementById('video');
-//     var captureButton = document.getElementById('capture');
-//     var canvas = document.getElementById('canvas');
-//     var context = canvas.getContext('2d');
-//     var videostream;
-
-//     // Get access to the camera
-//     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-//         navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-//             videostream=stream;
-//             video.srcObject = stream;
-//             video.play();
-//         });
-//     }
-
-//     // Capture the frame and draw it to the canvas
-//     captureButton.addEventListener('click', function() {
-//         context.drawImage(video, 0, 0, 640, 480);
-//         //used to stop camera stream
-//         videostream.getTracks().forEach(function(track) {
-//             track.stop();
-//         });
-//     });
-// });
-
-
-
+//FOR AMBIENT LIGHT
 var video = document.getElementById("video");
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
@@ -40,3 +13,21 @@ function getCurrentImage() {
 }
 
 setInterval(getCurrentImage, 100);
+//FOR AMBIENT LIGHT END
+let generatePlaylistBtn = document.getElementById("generateButton");
+loader = document.getElementById("loader");
+generatePlaylistBtn.addEventListener("click", handleGeneratePlaylistClick);
+
+async function handleGeneratePlaylistClick() {
+  console.log("button clicked");
+  loader.style.display = "block";
+  generatePlaylistBtn.style.display = "none";
+  let data = await fetchPlaylist();
+  console.log(data);
+}
+function fetchPlaylist() {
+  return fetch("/get_recommendations")
+    .then((response) => response.json())
+    .then((res) => res);
+}
+//fetch songs and display them
