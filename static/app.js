@@ -210,6 +210,14 @@ displayPlaylist = (data) => {
     let albumcell = document.createElement("td");
     albumcell.textContent = music.Album;
 
+    let covercell = document.createElement("td");
+    let cover = document.createElement("img");
+    cover.src = music.Image;
+    covercell.appendChild(cover);
+    cover.style.width = "50px";
+    cover.style.height = "50px";
+    cover.style.borderRadius = "50%";
+
     playBtn = document.createElement("button");
     playBtn.className = "control-btn";
     playBtn.addEventListener("click", (e) => {
@@ -235,6 +243,7 @@ displayPlaylist = (data) => {
     controlPlaycell.appendChild(playBtn);
 
     datarow.appendChild(controlPlaycell);
+    datarow.appendChild(covercell);
     datarow.appendChild(namecell);
     datarow.appendChild(artistcell);
     datarow.appendChild(albumcell);

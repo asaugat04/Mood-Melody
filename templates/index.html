@@ -39,7 +39,7 @@
     >
       <a href="#" class="navbar-brand ms-3"
         ><img
-          style="height: 60px; transform: scale(1.5);"
+          style="height: 60px; transform: scale(1.5)"
           src="{{ url_for('static', filename='/images/logo.png') }}"
       /></a>
       <div class="navbar_options me-4">
@@ -58,9 +58,10 @@
           </li>
           <li class="nav-item">
             <a href="/app">
-            <button id="start" class="btn btn-primary btn-lg p-2">
-              Start->
-            </button></a>
+              <button id="start" class="btn btn-primary btn-lg p-2">
+                Start->
+              </button></a
+            >
           </li>
         </ul>
       </div>
@@ -96,7 +97,9 @@
         </div>
         <br />
         <button type="button" class="fs-2 btn btn-outline-primary">
-          Let's Get<br />started
+          <a style="text-decoration: none" href="/app"
+            >Let's Get<br />started</a
+          >
         </button>
       </div>
 
@@ -218,6 +221,5 @@
     </div>
     <!-- End of about us tab -->
     <!-- Application -->
-    
   </body>
 </html>
