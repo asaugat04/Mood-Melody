@@ -54,7 +54,7 @@
         </ul>
       </div>
     </nav>
-    <div class="camera-container m-0">
+    <div class="camera-container m-0" style="display: block">
       <div class="top-banner mb-0">
         <h1
           class="text-secondary text-center mt-5 pt-5 mb-0"
@@ -100,6 +100,27 @@
           </div>
           <div class="progress-bar"></div>
         </div>
+      </div>
+    </div>
+    <div class="playlist-container m-0" style="display: none">
+      <div class="emotion-display-banner">
+        <h1 class="mt-5 pt-5 text-center">Detected Emotion:</h1>
+        <div class="emoji-background ms-5 me-5">
+          <div class="content">
+            <h1 id="detected-emotion">Happy</h1>
+          </div>
+        </div>
+      </div>
+      <h1 class="text-secondary text-center mt-3 mb-0">Your Playlist:</h1>
+      <div class="playlist-display">
+        <table id="playlist-table" class="music-table ms-5 me-5">
+          <tr>
+            <th>Btn</th>
+            <th>Name</th>
+            <th>Artist</th>
+            <th>Album</th>
+          </tr>
+        </table>
       </div>
     </div>
   </body>

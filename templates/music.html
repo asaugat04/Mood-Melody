@@ -1,0 +1,157 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      #boxes * {
+        border: 1px solid transparent;
+      }
+
+      #boxes {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        grid-template-areas:
+          "A B"
+          "A C";
+        gap: 32px;
+        place-content: center;
+        height: 100vh;
+      }
+
+      #player02 {
+        grid-area: B;
+        height: fit-content;
+      }
+
+      #player02 .controls {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .player {
+        background-color: #080747;
+        padding: 28px;
+        border-radius: 20px;
+      }
+
+      .player img {
+        width: 84px;
+        height: 84px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .info {
+        color: #e1e1e6;
+      }
+
+      .info p {
+        opacity: 0.68;
+        font-size: 19px;
+      }
+
+      .info-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .player h1 {
+        font-size: 27px;
+        color: #e1e1e6;
+        padding-bottom: 7px;
+      }
+
+      .controls {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+      }
+
+      .track {
+        padding-top: 28px;
+        position: relative;
+      }
+
+      .track::before {
+        content: "";
+        height: 6px;
+        width: 100%;
+        display: block;
+        background: #d9d9d9;
+        opacity: 0.3;
+        border-radius: 10px;
+        position: absolute;
+      }
+
+      .track::after {
+        content: "";
+        height: 6px;
+        width: 85%;
+        display: block;
+        background: #d9d9d9;
+        border-radius: 10px;
+      }
+
+      .time {
+        opacity: 0.7;
+        font-size: 14px;
+        color: gainsboro;
+
+        display: flex;
+        justify-content: space-between;
+        padding-top: 9.6px;
+      }
+
+      @media (max-width: 670px) {
+        #boxes {
+          display: flex;
+          flex-direction: column;
+
+          max-width: 270px;
+          margin: auto;
+
+          height: auto;
+          padding-block: 60px;
+        }
+      }
+    </style>
+
+    <title>Music Player</title>
+  </head>
+  <body>
+    <div id="boxes">
+      <div id="player02" class="player horizontal">
+        <div class="wrapper">
+          <div class="info-wrapper">
+            <img
+              src="https://cdn.pixabay.com/photo/2016/03/26/13/09/cup-of-coffee-1280537_1280.jpg"
+              alt="LogoMusicImage"
+              style="position: relative"
+            />
+            <div class="info">
+              <h1>Code<br />PodCast</h1>
+              <p>Banda OneBitMusic</p>
+            </div>
+          </div>
+
+          <div class="track-time">
+            <div class="track"></div>
+            <div class="time">
+              <div class="total-time">01:20</div>
+              <div class="last-time">00:12</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

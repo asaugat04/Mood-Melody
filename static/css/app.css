@@ -117,3 +117,41 @@ video {
     background-size: 100%;
   }
 }
+
+/* for emoji background */
+
+.emoji-background {
+  /* This will repeat the emoji across the entire background */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='50' viewBox='0 0 64 64'%3E%3Ctext y='50%25' x='40%25' dy='0.35em' text-anchor='middle' style='font-size:41px;'%3E😊%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;
+  height: 15vh;
+  min-height: 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  backdrop-filter: grayscale(0.4);
+}
+.content > h1 {
+  font-size: 4.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: transparent;
+  background-image: linear-gradient(to right, #87ffd1, #ffff4c, #fcd36a);
+  background-clip: text;
+}
+/* emoji bg end */
+.music-table {
+  width: 100%;
+}
+.music-table td {
+  padding: 10px;
+}
