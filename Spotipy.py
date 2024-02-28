@@ -41,7 +41,7 @@ def getTrackFeatures(id):
     # length = track_info['duration_ms']
     # popularity = track_info['popularity']
     image = track_info['album']['images'][0]['url'] or "null"
-    preview_url = track_info["preview_url"] or "No Preview Available"
+    preview_url = track_info["preview_url"] or "null"
     
     track_data = [name, album, artist,preview_url,image]  # , release_date, length, popularity
     return track_data
@@ -59,9 +59,9 @@ emotion_dict = {
     6: "Surprised",
 }
 music_dist = {
-    0: "0KPEhXA3O9jHFtpd1Ix5OB",
+    0: "289niu87jQv6wijmNnKE0L",
     1: "3qgzMg4m5tvf16PzlPgGa9",
-    2: "3d94bQehRibDa0NMUqcdPh",
+    2: "3W6P20WXYSNACvkGnGabEE",
     3: "37i9dQZF1DXdPec7aLTmlC",
     4: "4kvSlabrnfRCQWfN0MgtgA?si=b36add73b4a74b3a",
     5: "3Ar6l24242VBGny7S9VxcD",
@@ -80,7 +80,13 @@ track_list = []
 for i in range(len(track_ids)):
     time.sleep(0.3)
     track_data = getTrackFeatures(track_ids[i])
-    track_list.append(track_data)
+    is_null = False
+    for el in track_data:
+        if el == "null":
+            is_null = True
+            break
+    if not is_null:
+        track_list.append(track_data)
     df = pd.DataFrame(
         track_list, columns=["Name", "Album", "Artist", "Link", "Image"]
     )  # ,'Release_date','Length','Popularity'
@@ -92,7 +98,13 @@ track_list = []
 for i in range(len(track_ids)):
     time.sleep(0.3)
     track_data = getTrackFeatures(track_ids[i])
-    track_list.append(track_data)
+    is_null = False
+    for el in track_data:
+        if el == "null":
+            is_null = True
+            break
+    if not is_null:
+        track_list.append(track_data)
     df = pd.DataFrame(
         track_list, columns=["Name", "Album", "Artist", "Link", "Image"]
     )  # ,'Release_date','Length','Popularity'
@@ -104,7 +116,13 @@ track_list = []
 for i in range(len(track_ids)):
     time.sleep(0.3)
     track_data = getTrackFeatures(track_ids[i])
-    track_list.append(track_data)
+    is_null = False
+    for el in track_data:
+        if el == "null":
+            is_null = True
+            break
+    if not is_null:
+        track_list.append(track_data)
     df = pd.DataFrame(
         track_list, columns=["Name", "Album", "Artist", "Link", "Image"]
     )  # ,'Release_date','Length','Popularity'
@@ -128,7 +146,13 @@ track_list = []
 for i in range(len(track_ids)):
     time.sleep(0.3)
     track_data = getTrackFeatures(track_ids[i])
-    track_list.append(track_data)
+    is_null = False
+    for el in track_data:
+        if el == "null":
+            is_null = True
+            break
+    if not is_null:
+        track_list.append(track_data)
     df = pd.DataFrame(
         track_list, columns=["Name", "Album", "Artist", "Link", "Image"]
     )  # ,'Release_date','Length','Popularity'
@@ -140,7 +164,13 @@ track_list = []
 for i in range(len(track_ids)):
     time.sleep(0.3)
     track_data = getTrackFeatures(track_ids[i])
-    track_list.append(track_data)
+    is_null = False
+    for el in track_data:
+        if el == "null":
+            is_null = True
+            break
+    if not is_null:
+        track_list.append(track_data)
     df = pd.DataFrame(
         track_list, columns=["Name", "Album", "Artist", "Link", "Image"]
     )  # ,'Release_date','Length','Popularity'
@@ -152,7 +182,13 @@ track_list = []
 for i in range(len(track_ids)):
     time.sleep(0.3)
     track_data = getTrackFeatures(track_ids[i])
-    track_list.append(track_data)
+    is_null = False
+    for el in track_data:
+        if el == "null":
+            is_null = True
+            break
+    if not is_null:
+        track_list.append(track_data)
     df = pd.DataFrame(
         track_list, columns=["Name", "Album", "Artist", "Link", "Image"]
     )  # ,'Release_date','Length','Popularity'

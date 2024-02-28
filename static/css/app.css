@@ -9,6 +9,7 @@
   --bs-primary: #f9be08;
   --bs-primary-rgb: 249, 190, 8;
   --bs-secondary: #dfdfd9;
+  --bs-bg-dark: #1a1a19;
   --bs-secondary-rgb: 223, 223, 217;
   --bs-primary-bg-subtle: #efd30b;
 }
@@ -149,9 +150,44 @@ video {
   background-clip: text;
 }
 /* emoji bg end */
+td {
+  text-transform: capitalize;
+}
 .music-table {
-  width: 100%;
+  width: 90%;
+  border-collapse: collapse;
+  margin: 0 5% 0 5%;
 }
 .music-table td {
   padding: 10px;
 }
+tr:not(:first-child) {
+  background-color: var(--bs-secondary-bg-subtle);
+}
+tr:not(:first-child):hover {
+  /* filter: blur(1px); */
+  background-color: #2a2a2c;
+  /* color: #1a1a19; */
+}
+
+/* for play pause btn */
+.control-btn {
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
+  width: 0;
+  height: 16px;
+  border-color: transparent transparent transparent var(--bs-secondary);
+  transition: 100ms all ease;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 10px 0 10px 15px;
+}
+.control-btn.paused {
+  border-style: double;
+  border-width: 0px 0 0px 15px;
+}
+.control-btn:hover {
+  border-color: transparent transparent transparent #404040;
+}
+/* for play pause btn end */
