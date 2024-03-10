@@ -146,7 +146,8 @@ video {
   text-transform: uppercase;
   font-weight: bold;
   color: transparent;
-  background-image: linear-gradient(to right, #87ffd1, #ffff4c, #fcd36a);
+  color: #1a1a19;
+  /* background-image: linear-gradient(to right, #87ffd1, #ffff4c, #fcd36a); */
   background-clip: text;
 }
 /* emoji bg end */
@@ -166,7 +167,7 @@ tr:not(:first-child) {
 }
 tr:not(:first-child):hover {
   /* filter: blur(1px); */
-  background-color: #2a2a2c;
+  background-color: #ddd;
   /* color: #1a1a19; */
 }
 
@@ -177,7 +178,7 @@ tr:not(:first-child):hover {
   box-sizing: border-box;
   width: 0;
   height: 16px;
-  border-color: transparent transparent transparent var(--bs-secondary);
+  border-color: transparent transparent transparent #1a1a19;
   transition: 100ms all ease;
   cursor: pointer;
   border-style: solid;

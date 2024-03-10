@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="white">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -47,14 +47,14 @@
           <li class="nav-item">
             <button
               id="home"
-              class="nav-link text-secondary active"
+              class="nav-link text-primary active"
               aria-current="page"
             >
               Home
             </button>
           </li>
           <li class="nav-item">
-            <button id="about" class="nav-link text-secondary">About US</button>
+            <button id="about" class="nav-link text-primary">About US</button>
           </li>
           <li class="nav-item">
             <a href="/app">
@@ -200,7 +200,80 @@
       class="tab justify-content-center mt-5 pt-5 ms-0 ps-2 me-0"
       style="width: 98vw"
     >
-      Hello from about us
+      <h1 class="text-center mt-4 mb-5">OUR TEAM</h1>
+      <div
+        class="about-img d-flex align-items-center justify-content-center mt-4"
+      >
+        <div class="image_and_details">
+          <img
+            src="{{ url_for('static', filename='/images/saugat_a.jpg') }}"
+            class="img-fluid"
+            alt="..."
+          /><br />
+          <div class="text-center mt-2">
+            <b>Saugat Adhikari</b>
+            <br />
+            Symbol No: 24567/076
+          </div>
+        </div>
+        <div class="image_and_details">
+          <img
+            src="{{ url_for('static', filename='/images/saugat_c.jpg') }}"
+            class="img-fluid"
+            alt="..."
+          /><br />
+          <div class="text-center mt-2">
+            <b>Saugat Chapagain</b>
+            <br />
+            Symbol No: 24568/076
+          </div>
+        </div>
+        <div class="image_and_details">
+          <img
+            src="{{ url_for('static', filename='/images/saugat_g.jpg') }}"
+            class="img-fluid"
+            alt="..."
+          /><br />
+          <div class="text-center mt-2">
+            <b>Saugat Gautam</b>
+            <br />
+            Symbol No: 24569/076
+          </div>
+        </div>
+      </div>
+      <div class="about_content mt-5" style="width: 60vw; margin-left: 20vw">
+        <p>
+          Our team is made up of passionate musicians and inventors who are
+          committed to creating the ideal soundtrack to connect emotions.
+          Despite coming from different backgrounds, we work together to create
+          a sophisticated Emotion-Music Recommendation system that makes use of
+          deep learning and artificial intelligence.
+        </p>
+        <h3>Our Objective:</h3>
+
+        <p>
+          Our approach uses an advanced combination of algorithms for both music
+          suggestion and face emotion identification.
+        </p>
+        <h3>Our Approach:</h3>
+        <p>
+          Our recommendation system is constructed by combining content-based
+          and collaborative filtering methods.
+        </p>
+        <h3>Our Vision:</h3>
+        <p>
+          In our ideal future, music will be a natural part of every day life
+          and be used as a tool to improve and maintain mental health. We want
+          to use technology to help listeners and music connect more deeply by
+          making soundtracks that are specifically tailored to each listener's
+          mood. We hope that our Emotion-Music Recommendation system will make
+          finding the ideal music enjoyable and intuitive, bringing us closer to
+          a world in which every emotional experience can be exquisitely
+          accentuated by the appropriate tune. Come along on our quest to change
+          the way people perceive music so that each listen is an expression of
+          the heart.
+        </p>
+      </div>
     </div>
     <!-- End of about us tab -->
   </body>
