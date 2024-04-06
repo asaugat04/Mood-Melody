@@ -177,9 +177,15 @@ function changeEmojiTo(emotion) {
 }
 function fetchPlaylist() {
   return fetch("/get_recommendations")
-    .then((response) => response.json())
-    .then((res) => res);
+    .then((response) => response.text()) // Get the response as text
+    .then((text) => {
+      // Attempt custom parsing or replacement here
+      const safeText = text.replace(/NaN/g, "null"); // Example: replacing 'NaN' with 'null'
+      return JSON.parse(safeText);
+    })
+    .catch((err) => console.log(err));
 }
+
 //fetch songs and display them
 let videoPage = document.querySelector(".camera-container");
 let playlistpage = document.querySelector(".playlist-container");
